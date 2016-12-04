@@ -15,7 +15,7 @@
 			$balcony = $userInput['balcony'];
 			$washroom = $userInput['washroom'];
 		
-			$this->db->select('f.id,f.flat_type,f.flat_name,f.location_details,f.masterbed,f.bed,f.balcony,f.washroom,f.available_from,f.flat_price,r.total_view,l.location,s.sublocation,GROUP_CONCAT(i.image_name) as gcimages');
+			$this->db->select('f.id,f.flat_type,f.flat_name,f.location_details,f.masterbed,f.bed,f.balcony,f.washroom,f.available_from,f.flat_price,r.total_view,l.location,s.sublocation');
 
 			$this->db->from('tbl_flat as f');
 
@@ -30,9 +30,7 @@
 			$this->db->join('tbl_sublocation as s', 's.id = f.location_id', 'left');
 			$this->db->join('tbl_location as l', 's.location_id = l.id', 'left');
 			$this->db->join('tbl_rating as r', ' f.id = r.flat_id' , 'left');
-			$this->db->join('tbl_images as i', ' f.id = i.flat_id' , 'left');
-
-			$this->db->group_by('i.flat_id');
+			
 
 			$this->db->order_by('r.total_view', 'DESC');
 			
@@ -78,7 +76,7 @@
 
 			$sublocation = $userInput['sublocation'];
 		
-			$this->db->select('f.id,f.flat_type,f.flat_name,f.location_details,f.masterbed,f.bed,f.balcony,f.washroom,f.available_from,f.flat_price,r.total_view,l.location,s.sublocation,GROUP_CONCAT(i.image_name) as gcimages');
+			$this->db->select('f.id,f.flat_type,f.flat_name,f.location_details,f.masterbed,f.bed,f.balcony,f.washroom,f.available_from,f.flat_price,r.total_view,l.location,s.sublocation');
 			$this->db->from('tbl_flat as f');
 
 			$this->db->where('f.isPublished', '1');
@@ -89,9 +87,7 @@
 			$this->db->join('tbl_sublocation as s', 's.id = f.location_id', 'left');
 			$this->db->join('tbl_location as l', 's.location_id = l.id', 'left');
 			$this->db->join('tbl_rating as r', ' f.id = r.flat_id' , 'left');
-			$this->db->join('tbl_images as i', ' f.id = i.flat_id' , 'left');
 
-			$this->db->group_by('i.flat_id');
 
 			$this->db->order_by('r.total_view', 'DESC');
 

@@ -28,16 +28,13 @@
 								<td>
 									<div class='col-sm-4'>
 						";
-
-						$myString=$res['gcimages'];
-						$mySplit = explode(',', $myString);
-								foreach($mySplit as $row){
+						$row="";
+						
 									?>
 
 									<img src="<?php echo base_url();?>public/uploads/<?php echo $row; ?>" alt="No Image Uploaded" class="mySlides" width="300" height="200"/> 
 									<?php
-									break;
-										};
+									
 								echo "
 									</div>
 										<div class='col-sm-8' border='1' align='left' style='background-color:white;''>
@@ -84,16 +81,13 @@
 								<td>
 									<div class='col-sm-4'>
 						";
-
-						$myString=$res['gcimages'];
-						$mySplit = explode(',', $myString);
-								foreach($mySplit as $row){
+							$row="";
+		
 									?>
 
 									<img src="<?php echo base_url();?>public/uploads/<?php echo $row; ?>" alt="No Image Uploaded" class="mySlides" width="300" height="200"/> 
 									<?php
-									break;
-										};
+								
 								echo "
 									</div>
 										<div class='col-sm-8' border='1' align='left' style='background-color:white;''>
